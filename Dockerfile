@@ -15,9 +15,14 @@ RUN make install
 # Install Neovim's luarocks
 RUN apt-get install -y luarocks python3 ripgrep
 
-
+RUN mkdir -p /root/.config
+WORKDIR /root/.config
 
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 RUN update-alternatives --config python
+
+RUN git clone https://github.com/william-barros-costa/nvim.git
+RUN nvim --headless +Lazy! sync +qa
+RUN nvim --headless -c "MasonToolsInstallSync" -c 'qa'
 
 ENTRYPOINT ["/bin/bash"]
