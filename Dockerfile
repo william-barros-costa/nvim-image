@@ -13,7 +13,7 @@ WORKDIR /root/neovim
 RUN make -j 20
 RUN make install
 # Install Neovim's luarocks
-RUN apt-get install -y luarocks python3 ripgrep
+RUN apt-get install -y luarocks python3 ripgrep npm
 
 RUN mkdir -p /root/.config
 WORKDIR /root/.config
