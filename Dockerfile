@@ -24,6 +24,5 @@ RUN update-alternatives --config python
 RUN git clone https://github.com/william-barros-costa/nvim.git
 RUN nvim --headless +Lazy! sync +qa
 RUN nvim --headless -c "MasonToolsInstallSync" -c 'qa'
-RUN nvim --headless -c "MasonToolsInstallSync" -c 'qa'
 
 ENTRYPOINT ["/bin/bash"]
