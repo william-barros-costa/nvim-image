@@ -12,10 +12,11 @@ jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      packages: write
-      attestations: write
-      id-token: write
+      contents: read/write
+      packages: read/write
+      attestations: read/write 
+      id-token: read/write
+      deployments: read/write
 
     steps:
       - name: Checkout repository
