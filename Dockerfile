@@ -12,7 +12,7 @@ RUN mkdir -p /home/user/.config
 
 # Install Neovim
 RUN apt-get install -y cmake gettext
-RUN git clone 'https://github.com/neovim/neovim.git' "$HOME"
+RUN git clone 'https://github.com/neovim/neovim.git' "$HOME/neovim"
 WORKDIR /home/user/neovim
 RUN make -j 20
 RUN make install
@@ -26,6 +26,6 @@ RUN update-alternatives --config python
 
 RUN git clone https://github.com/william-barros-costa/nvim.git
 RUN nvim --headless +Lazy! sync +qa
-RUN nvim --headless -c "MasonToolsInstallSync" -c 'qa'
+# RUN nvim --headless -c "MasonToolsInstallSync" -c 'qa'
 
 ENTRYPOINT ["/bin/bash"]
